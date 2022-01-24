@@ -43,7 +43,7 @@ namespace TgBot
             services.AddHttpClient("weatherapi", client =>
                 {
                     client.BaseAddress = new Uri("https://www.metaweather.com");
-                    client.Timeout = TimeSpan.FromSeconds(10);
+                    client.Timeout = TimeSpan.FromSeconds(15);
                 })
                 .AddTypedClient<IWeatherApiClient>(client => new WeatherApiClient(client, settings));
 

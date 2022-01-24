@@ -54,7 +54,8 @@ namespace TgBot.Services.Telegram
 
                 if (weather != null)
                 {
-                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"The weather in {weatherInfo.Title} " +
+                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"Date: {weather.ApplicableDate.ToLongDateString()}. " +
+                        $"The weather in {weatherInfo.Title} " +
                         $"is between {weather.MinTemp:F1} and {weather.MaxTemp:F1} (current weather is {weather.TheTemp:F1})",
 
                         cancellationToken: cancellationToken);
