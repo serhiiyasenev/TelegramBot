@@ -26,14 +26,13 @@ namespace TgBot.Services.Telegram
             {
                 if (update.Type != UpdateType.Message)
                 {
-                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"I cannot handle {update.Type}",
-                        cancellationToken: cancellationToken);
-
+                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"I cannot handle {update.Type}", cancellationToken: cancellationToken);
                     return;
                 }
 
                 if (update.Message.Text.Equals("/start"))
                 {
+                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, "Hi there!", cancellationToken: cancellationToken);
                     return;
                 }
 
@@ -43,9 +42,7 @@ namespace TgBot.Services.Telegram
 
                 if (location == null)
                 {
-                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"I cannot find location by query '{query}'",
-                        cancellationToken: cancellationToken);
-
+                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"I cannot find location by query '{query}'", cancellationToken: cancellationToken);
                     return;
                 }
 
@@ -55,11 +52,8 @@ namespace TgBot.Services.Telegram
                 if (weather != null)
                 {
                     await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"Date: {weather.ApplicableDate.ToLongDateString()}. " +
-                        $"The weather in {weatherInfo.Title} " +
-                        $"is between {weather.MinTemp:F1} and {weather.MaxTemp:F1} (current weather is {weather.TheTemp:F1})",
-
+                        $"The weather in {weatherInfo.Title} is between {weather.MinTemp:F1} and {weather.MaxTemp:F1} (current weather is {weather.TheTemp:F1})",
                         cancellationToken: cancellationToken);
-
                     return;
                 }
 
