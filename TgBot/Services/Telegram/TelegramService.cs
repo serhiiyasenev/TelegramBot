@@ -32,11 +32,15 @@ namespace TgBot.Services.Telegram
 
                 if (update.Message.Text.Equals("/start", StringComparison.OrdinalIgnoreCase) || update.Message.Text.Equals("start", StringComparison.OrdinalIgnoreCase))
                 {
-                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"Hi there! {update.Message.Chat.FirstName}", cancellationToken: cancellationToken);
+                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"Hi there! {update.Message.Chat.FirstName} 😜", cancellationToken: cancellationToken);
                     return;
                 }
 
                 var query = update.Message.Text;
+                
+                // old naming in metaweather
+                query = query.Equals("Kyiv", StringComparison.OrdinalIgnoreCase) ? "Kiev" : query;
+                
                 var locations = await _weatherApiClient.GetLocationsByQuery(query, cancellationToken);
                 var location = locations?.FirstOrDefault();
 
