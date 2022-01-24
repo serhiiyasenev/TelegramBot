@@ -30,9 +30,9 @@ namespace TgBot.Services.Telegram
                     return;
                 }
 
-                if (update.Message.Text.Equals("/start"))
+                if (update.Message.Text.Equals("/start") || update.Message.Text.Equals("start"))
                 {
-                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, "Hi there!", cancellationToken: cancellationToken);
+                    await _telegramBotClient.SendTextMessageAsync(update.Message.Chat.Id, $"Hi there! {update.Message.Chat.FirstName}", cancellationToken: cancellationToken);
                     return;
                 }
 
