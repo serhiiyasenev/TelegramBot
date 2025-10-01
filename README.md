@@ -47,7 +47,7 @@ $env:Telegram__BotToken="123456:ABC..."
 export Telegram__BotToken="123456:ABC..."
 ```
 
-🐳 Run in Docker
+🐳 **Run in Docker**
 ```dockerfile
 # 1) build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
