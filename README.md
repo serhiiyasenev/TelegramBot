@@ -31,14 +31,14 @@ Solution file: **TgBot.sln**
 ### 2) Configuration
 Recommended way: **User Secrets** (local) or **Environment Variables** (CI/CD, Docker).
 
-**Using User Secrets (local):**
+📄 **Using User Secrets (local):**
 ```bash
 cd TgBot
 dotnet user-secrets init
 dotnet user-secrets set "Telegram:BotToken" "123456:ABC..."
 ```
 
-**Using Environment Variables:**
+📄 **Using Environment Variables:**
 ```bash
 # Windows (PowerShell)
 $env:Telegram__BotToken="123456:ABC..."
@@ -64,7 +64,8 @@ COPY --from=build /app .
 # ENV Telegram__BotToken=123456:ABC...
 ENTRYPOINT ["dotnet", "TgBot.dll"]
 ```
-**Build & Run:**
+
+🛠 **Build & Run:**
 ```bash
 docker build -t telegram-bot .
 docker run --rm -e Telegram__BotToken="123456:ABC..." telegram-bot
