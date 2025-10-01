@@ -25,7 +25,7 @@ Solution file: **TgBot.sln**
 ## 🚀 Getting Started
 
 ### 1) Prerequisites
-1. Install **.NET SDK** (7 or 8).
+1. Install **.NET SDK** (5 or higher).
 2. Get a **Telegram Bot Token** from [@BotFather](https://t.me/BotFather).
 
 ### 2) Configuration
